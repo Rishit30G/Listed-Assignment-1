@@ -33,15 +33,6 @@ import pageRoutes from "page.routes";
 function IllustrationLayout({ color, header, title, description, button, illustration, children }) {
   return (
     <PageLayout background="white">
-      <DefaultNavbar
-        routes={pageRoutes}
-        action={{
-          type: "external",
-          route: "https://creative-tim.com/product/argon-dashboard-pro-react",
-          label: "Buy Now",
-          ...button,
-        }}
-      />
       <Grid container>
         <Grid item xs={11} sm={8} md={6} lg={4} xl={3} sx={{ mx: "auto" }}>
           <ArgonBox display="flex" flexDirection="column" justifyContent="center" height="100vh">
@@ -49,7 +40,7 @@ function IllustrationLayout({ color, header, title, description, button, illustr
               {!header ? (
                 <>
                   <ArgonBox mb={1}>
-                    <ArgonTypography variant="h4" fontWeight="bold">
+                    <ArgonTypography variant="h2" fontWeight="bold">
                       {title}
                     </ArgonTypography>
                   </ArgonBox>
@@ -96,12 +87,12 @@ function IllustrationLayout({ color, header, title, description, button, illustr
               position="absolute"
               topl={0}
               left={0}
-              opacity={0.7}
+              opacity={0.9}
             />
             <ArgonBox position="relative">
               {illustration.title && (
                 <ArgonBox mt={6} mb={1}>
-                  <ArgonTypography variant="h4" color="white" fontWeight="bold">
+                  <ArgonTypography variant="h1" color="white" fontWeight="bold" style={{fontSize: '100px', fontFamily: 'Montserrat'}}>
                     {illustration.title}
                   </ArgonTypography>
                 </ArgonBox>
@@ -123,11 +114,11 @@ function IllustrationLayout({ color, header, title, description, button, illustr
 
 // Setting default values for the props of IllustrationLayout
 IllustrationLayout.defaultProps = {
-  color: "info",
+  color: "dark",
   header: "",
   title: "",
   description: "",
-  button: { color: "info" },
+  button: { color: "dark" },
   illustration: {},
 };
 

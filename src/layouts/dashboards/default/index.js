@@ -52,20 +52,38 @@ import projectsTableData from "layouts/dashboards/default/data/projectsTableData
 import salesTableData from "layouts/dashboards/default/data/salesTableData";
 import authorsTableData from "layouts/dashboards/default/data/authorsTableData";
 import categoriesListData from "layouts/dashboards/default/data/categoriesListData";
-import { Rowing } from "@mui/icons-material";
+import { ArrowRight, Rowing } from "@mui/icons-material";
 import { GrantCard } from "examples/Cards/GrantCard";
+import MiniGradientLineChart from "examples/Charts/LineCharts/MiniGradientLineChart";
+import { Card, CardContent, Stack } from "@mui/material";
+import PropTypes from "prop-types";
+import PieChart from "examples/Charts/PieChart";
+import ArgonBadgeDot from "components/ArgonBadgeDot";
 
 function Default() {
-  const { size } = typography;
+  const myData = {
+    labels: ["Red", "Blue", "Yellow"],
+    datasets: [
+      {
+        data: [300],
+        backgroundColor: ["primary"],
+      },
+    ],
+  };
   return (
     <DashboardLayout>
       <DashboardNavbar />
       <ArgonBox py={3} px={3}>
-      <ArgonTypography variant="h2" fontWeight="bold" textTransform="capitalize" style={{marginBottom: '15px'}}>
-             App Metrics 
+        <ArgonTypography
+          variant="h2"
+          fontWeight="bold"
+          textTransform="capitalize"
+          style={{ marginBottom: "15px" }}
+        >
+          Dashboard
         </ArgonTypography>
         <Grid container spacing={3} mb={3}>
-          <Grid item xs={12} md={6} lg={3}>
+          <Grid item xs={12} md={6} lg={3} >
             <DetailedStatisticsCard
               title="Dao's Tracked"
               count="24"
@@ -98,36 +116,119 @@ function Default() {
             />
           </Grid>
         </Grid>
-        <ArgonTypography variant="h2" fontWeight="bold" textTransform="capitalize" style={{marginBottom: '15px'}}>
-              Grants and Proposal Calender
-            </ArgonTypography>
-        <Grid container spacing={3} mb={3}>
-          <Grid item xs={12} lg={7}>
-             <GrantCard></GrantCard>
-          </Grid>
-          <Grid item xs={12} lg={5}>
-            <Slider />
-          </Grid>
+
+        <Grid container style={{ marginBottom: "50px" }}>
+          <ArgonBox style={{ width: "100%" }}>
+            <GradientLineChart
+              title="Activity"
+              description="May - June 2021"
+              height={200}
+              chart={{
+                labels: ["Week 1", "Week 2", "Week 3", "Week 4", "Week 5", "Week 6"],
+                datasets: [
+                  {
+                    label: "Sales",
+                    data: [50, 200, 88, 320, 400, 450],
+                    color: "primary",
+                  },
+                  {
+                    label: "Expenses",
+                    data: [100, 28, 121, 30, 200, 340],
+                    color: "secondary",
+                  },
+                ],
+              }}
+            />
+          </ArgonBox>
         </Grid>
 
-        <Grid container spacing={3} style={{ display: "flex" }}>
-        <Grid item xs={12} md={4} lg={4}>
-            <ArgonTypography variant="h2" fontWeight="bold" textTransform="capitalize" style={{marginBottom: '15px'}}>
-              Top Discussions
-            </ArgonTypography>
-            <Post />
+        <Grid container>
+          <Grid item lg={6}>
+            <Card>
+              <CardContent>
+                <Grid container spacing={3}>
+                  <Grid item lg={6}>
+                    <ArgonTypography variant="h3">Top Products</ArgonTypography>
+                    <PieChart
+                      chart={{
+                        labels: ["Facebook", "Direct", "Organic", "Referral"],
+                        datasets: {
+                          label: "Projects",
+                          backgroundColors: ["dark", "primary", "secondary"],
+                          data: [14, 31, 55],
+                        },
+                      }}
+                    />
+                  </Grid>
+                  <Grid item lg={6} style={{marginTop: '40px'}}> 
+                    <Grid container spacing={2} direction="column">
+                        <Grid item>
+                        <ArgonTypography variant="h4">
+                            Basic Tees
+                        </ArgonTypography>
+                        <ArgonTypography variant="h4">55%</ArgonTypography>
+                        </Grid>
+
+                        <Grid item>
+               
+                        <ArgonTypography variant="h4">
+                          Basic Tees
+                        </ArgonTypography>
+                        <ArgonTypography variant="h4">31%</ArgonTypography>
+                        </Grid>
+
+                        <Grid item>
+                   
+                        <ArgonTypography variant="h4">
+                         Basic Tees
+                        </ArgonTypography>
+                        <ArgonTypography variant="h4">14%</ArgonTypography>
+                        </Grid>
+                    
+                    </Grid>
+                  </Grid>
+                </Grid>
+              </CardContent>
+            </Card>
           </Grid>
-          <Grid item xs={12} md={4} lg={4}>
-            <ArgonTypography variant="h2" fontWeight="bold" textTransform="capitalize" style={{marginBottom: '15px'}}>
-              Top Proposals
-            </ArgonTypography>
-            <TeamMembers />
-          </Grid>
-          <Grid item xs={12} md={4} lg={4}>
-            <ArgonTypography variant="h2" fontWeight="bold" textTransform="capitalize" style={{marginBottom: '15px'}}>
-              Top Articles
-            </ArgonTypography>
-            <TodoList />
+
+          <Grid item lg={6}>
+            <Card>
+              <ArgonBox px={3} py={3}>
+                <CardContent>
+                  <Grid container justifyContent="space-between" style={{ marginBottom: "45px" }}>
+                    <Grid item>
+                      <ArgonTypography variant="h2">Today's Schedule</ArgonTypography>
+                    </Grid>
+                    <Grid item>
+                      <ArgonTypography varaint="body1">
+                        See All <ArrowRight></ArrowRight>
+                      </ArgonTypography>
+                    </Grid>
+                  </Grid>
+                  <Grid container spacing={3} direction="column">
+                    <Grid item>
+                      <Stack style={{ borderLeft: "10px solid green", paddingLeft: "10px" }}>
+                        <ArgonTypography variant="h4">
+                          Meeting with the suppliers from Kuta Bali
+                        </ArgonTypography>
+                        <ArgonTypography variant="body1">14:00 - 15:00</ArgonTypography>
+                        <ArgonTypography variant="body1">Sunset Road, Kuta, Bali</ArgonTypography>
+                      </Stack>
+                    </Grid>
+                    <Grid item>
+                      <Stack style={{ borderLeft: "10px solid blue", paddingLeft: "10px" }}>
+                        <ArgonTypography variant="h4">
+                          Meeting with the suppliers from Kuta Bali
+                        </ArgonTypography>
+                        <ArgonTypography variant="body1">14:00 - 15:00</ArgonTypography>
+                        <ArgonTypography variant="body1">Sunset Road, Kuta, Bali</ArgonTypography>
+                      </Stack>
+                    </Grid>
+                  </Grid>
+                </CardContent>
+              </ArgonBox>
+            </Card>
           </Grid>
         </Grid>
       </ArgonBox>

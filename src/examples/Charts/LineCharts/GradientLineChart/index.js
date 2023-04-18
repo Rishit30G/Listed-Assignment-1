@@ -36,6 +36,8 @@ import configs from "examples/Charts/LineCharts/GradientLineChart/configs";
 
 // Argon Dashboard 2 PRO MUI base styles
 import colors from "assets/theme/base/colors";
+import { ArrowDown } from "@web3uikit/icons";
+import { Avatar, Grid, Stack } from "@mui/material";
 
 function GradientLineChart({ title, description, height, chart }) {
   const chartRef = useRef(null);
@@ -74,9 +76,22 @@ function GradientLineChart({ title, description, height, chart }) {
             </ArgonBox>
           )}
           <ArgonBox mb={2}>
-            <ArgonTypography component="div" variant="button" fontWeight="regular" color="text">
-              {description}
-            </ArgonTypography>
+            <Grid container justifyContent="space-between" direction="row">
+              <ArgonTypography component="div" variant="button" fontWeight="regular" color="text">
+                {description}
+                <ArrowDown></ArrowDown>
+              </ArgonTypography>
+              <Stack direction="row-reverse" spacing={2}>
+              <Avatar sx={{ width: 20, height: 20, bgcolor: colors.primary.main }} />
+                <ArgonTypography component="div" variant="button" fontWeight="regular" color="text">
+                  User
+                </ArgonTypography>
+                <Avatar sx={{ width: 20, height: 20, bgcolor: "grey" }} />
+                <ArgonTypography component="div" variant="button" fontWeight="regular" color="text">
+                  Guest
+                </ArgonTypography>
+                </Stack>
+            </Grid>
           </ArgonBox>
         </ArgonBox>
       ) : null}

@@ -20,6 +20,8 @@ import { Link } from "react-router-dom";
 
 // @mui material components
 import Switch from "@mui/material/Switch";
+import github from "assets/images/logos/github.svg";
+import google from "assets/images/logos/google.svg";
 
 // Argon Dashboard 2 PRO MUI components
 import ArgonBox from "components/ArgonBox";
@@ -32,7 +34,7 @@ import IllustrationLayout from "layouts/authentication/components/IllustrationLa
 
 // Image
 const bgImage =
-  "https://raw.githubusercontent.com/creativetimofficial/public-assets/master/argon-dashboard-pro/assets/img/signin-ill.jpg";
+  "https://picsum.photos/927/1208";
 
 function Illustration() {
   const [rememberMe, setRememberMe] = useState(false);
@@ -42,15 +44,23 @@ function Illustration() {
   return (
     <IllustrationLayout
       title="Sign In"
-      description="Enter your email and password to sign in"
+      description="Sign in to your account"
       illustration={{
         image: bgImage,
-        title: '"Attention is the new currency"',
-        description:
-          "The more effortless the writing looks, the more effort the writer actually put into the process.",
+        title: 'Board.',
       }}
     >
       <ArgonBox component="form" role="form">
+        <ArgonBox display="flex" sx={{ mb: 3 }}>
+          <ArgonButton size="small" sx={{ mr: 1 }}>
+            <ArgonBox component="img" src={github} alt="github" width="23px" height="23px" />
+            &nbsp; Github
+          </ArgonButton>
+          <ArgonButton size="small">
+            <ArgonBox component="img" src={google} alt="github" width="23px" height="23px" />
+            &nbsp; Google
+          </ArgonButton>
+        </ArgonBox>
         <ArgonBox mb={2}>
           <ArgonInput type="email" placeholder="Email" size="large" />
         </ArgonBox>
@@ -58,18 +68,12 @@ function Illustration() {
           <ArgonInput type="password" placeholder="Password" size="large" />
         </ArgonBox>
         <ArgonBox display="flex" alignItems="center">
-          <Switch checked={rememberMe} onChange={handleSetRememberMe} />
-          <ArgonTypography
-            variant="button"
-            fontWeight="regular"
-            onClick={handleSetRememberMe}
-            sx={{ cursor: "pointer", userSelect: "none" }}
-          >
-            &nbsp;&nbsp;Remember me
+          <ArgonTypography variant="button" fontWeight="regular" style={{color: '#346BD4'}}>
+            Forgot Password ?
           </ArgonTypography>
         </ArgonBox>
         <ArgonBox mt={4} mb={1}>
-          <ArgonButton color="info" size="large" fullWidth>
+          <ArgonButton color="dark" size="large" fullWidth>
             Sign In
           </ArgonButton>
         </ArgonBox>
@@ -80,8 +84,8 @@ function Illustration() {
               component={Link}
               to="/authentication/sign-up/illustration"
               variant="button"
-              color="info"
               fontWeight="medium"
+              style={{color: '#346BD4'}}
             >
               Sign up
             </ArgonTypography>
