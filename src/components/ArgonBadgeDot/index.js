@@ -36,8 +36,8 @@ const ArgonBadgeDot = forwardRef(({ variant, color, size, badgeContent, font, ..
     fontSize = "body2";
     padding = "0.85em 1.375em";
   } else if (size === "md") {
-    finalSize = "0.5rem";
-    fontSize = "button";
+    finalSize = "1rem";
+    fontSize = "h3";
     padding = "0.65em 1em";
   } else {
     finalSize = "0.375rem";

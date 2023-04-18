@@ -38,7 +38,7 @@ function DetailedStaticsCard({ bgColor, title, count, percentage, icon, directio
         bgColor={bgColor === "white" && darkMode ? "transparent" : bgColor}
         variant={bgColor === "white" && darkMode ? "contained" : "gradient"}
       >
-        <ArgonBox p={2}>
+        <ArgonBox p={2} mb={4}>
           <Grid container>
             {direction === "left" ? (
               <Grid item>

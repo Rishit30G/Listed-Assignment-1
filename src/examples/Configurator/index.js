@@ -72,12 +72,12 @@ function Configurator() {
         pb={0.8}
         px={3}
       >
-        <ArgonBox>
+        {/* <ArgonBox>
           <ArgonTypography variant="h5">Argon Configurator</ArgonTypography>
           <ArgonTypography variant="body2" color="text">
             See our dashboard options.
           </ArgonTypography>
-        </ArgonBox>
+        </ArgonBox> */}
 
         <Icon
           sx={({ typography: { size, fontWeightBold }, palette: { dark, white } }) => ({
@@ -98,7 +98,7 @@ function Configurator() {
       <Divider />
 
       <ArgonBox pt={1.25} pb={3} px={3}>
-        <ArgonBox>
+        {/* <ArgonBox>
           <ArgonTypography variant="h6">Sidenav Colors</ArgonTypography>
 
           <ArgonBox mb={0.5}>
@@ -130,9 +130,9 @@ function Configurator() {
               />
             ))}
           </ArgonBox>
-        </ArgonBox>
+        </ArgonBox> */}
 
-        <ArgonBox mt={3} lineHeight={1}>
+        {/* <ArgonBox mt={3} lineHeight={1}>
           <ArgonTypography variant="h6">Sidenav Type</ArgonTypography>
           <ArgonTypography variant="button" color="text" fontWeight="regular">
             Choose between 2 different sidenav types.
@@ -164,14 +164,14 @@ function Configurator() {
               Dark
             </ArgonButton>
           </ArgonBox>
-        </ArgonBox>
-        <ArgonBox display="flex" justifyContent="space-between" mt={3} lineHeight={1}>
+        </ArgonBox> */}
+        {/* <ArgonBox display="flex" justifyContent="space-between" mt={3} lineHeight={1}>
           <ArgonTypography variant="h6">Navbar Fixed</ArgonTypography>
 
           <Switch checked={fixedNavbar} onChange={handleFixedNavbar} />
-        </ArgonBox>
+        </ArgonBox> */}
 
-        <Divider />
+        {/* <Divider />
 
         <ArgonBox display="flex" justifyContent="space-between" lineHeight={1}>
           <ArgonTypography variant="h6">Sidenav Mini</ArgonTypography>
@@ -179,7 +179,7 @@ function Configurator() {
           <Switch checked={miniSidenav} onChange={handleMiniSidenav} />
         </ArgonBox>
 
-        <Divider />
+        <Divider /> */}
 
         <ArgonBox display="flex" justifyContent="space-between" lineHeight={1}>
           <ArgonTypography variant="h6">Light / Dark</ArgonTypography>
@@ -187,7 +187,7 @@ function Configurator() {
           <Switch checked={darkMode} onChange={handleDarkMode} />
         </ArgonBox>
 
-        <ArgonBox mt={5} mb={2}>
+        {/* <ArgonBox mt={5} mb={2}>
           <ArgonBox mb={2}>
             <ArgonButton
               component={Link}
@@ -223,8 +223,8 @@ function Configurator() {
           >
             View Documentation
           </ArgonButton>
-        </ArgonBox>
-        <ArgonBox display="flex" justifyContent="center">
+        </ArgonBox> */}
+        {/* <ArgonBox display="flex" justifyContent="center">
           <GitHubButton
             href="https://github.com/creativetimofficial/ct-argon-dashboard-pro-material-ui"
             data-icon="octicon-star"
@@ -264,7 +264,7 @@ function Configurator() {
               &nbsp; Share
             </ArgonButton>
           </ArgonBox>
-        </ArgonBox>
+        </ArgonBox> */}
       </ArgonBox>
     </ConfiguratorRoot>
   );

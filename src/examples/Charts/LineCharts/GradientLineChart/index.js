@@ -72,7 +72,7 @@ function GradientLineChart({ title, description, height, chart }) {
         <ArgonBox px={description ? 1 : 0} pt={description ? 1 : 0}>
           {title && (
             <ArgonBox mb={1}>
-              <ArgonTypography variant="h6">{title}</ArgonTypography>
+              <ArgonTypography variant="h2">{title}</ArgonTypography>
             </ArgonBox>
           )}
           <ArgonBox mb={2}>

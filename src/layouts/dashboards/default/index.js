@@ -52,24 +52,16 @@ import projectsTableData from "layouts/dashboards/default/data/projectsTableData
 import salesTableData from "layouts/dashboards/default/data/salesTableData";
 import authorsTableData from "layouts/dashboards/default/data/authorsTableData";
 import categoriesListData from "layouts/dashboards/default/data/categoriesListData";
-import { ArrowRight, Rowing } from "@mui/icons-material";
+import { ArrowDropDown, ArrowRight, Rowing } from "@mui/icons-material";
 import { GrantCard } from "examples/Cards/GrantCard";
 import MiniGradientLineChart from "examples/Charts/LineCharts/MiniGradientLineChart";
 import { Card, CardContent, Stack } from "@mui/material";
 import PropTypes from "prop-types";
 import PieChart from "examples/Charts/PieChart";
 import ArgonBadgeDot from "components/ArgonBadgeDot";
+import axios from "axios";
 
 function Default() {
-  const myData = {
-    labels: ["Red", "Blue", "Yellow"],
-    datasets: [
-      {
-        data: [300],
-        backgroundColor: ["primary"],
-      },
-    ],
-  };
   return (
     <DashboardLayout>
       <DashboardNavbar />
@@ -83,34 +75,34 @@ function Default() {
           Dashboard
         </ArgonTypography>
         <Grid container spacing={3} mb={3}>
-          <Grid item xs={12} md={6} lg={3} >
+          <Grid item xs={12} md={6} lg={3}>
             <DetailedStatisticsCard
-              title="Dao's Tracked"
-              count="24"
+              title="Total Revenue"
+              count="$2,129,430"
               icon={{ color: "info", component: <i className="ni ni-money-coins" /> }}
               percentage={{ color: "success", count: "+55%", text: "since yesterday" }}
             />
           </Grid>
           <Grid item xs={12} md={6} lg={3}>
             <DetailedStatisticsCard
-              title="Jobs Disbursed"
-              count="54"
+              title="Total Transactions"
+              count="1520"
               icon={{ color: "error", component: <i className="ni ni-world" /> }}
               // percentage={{ color: "success", count: "+3%", text: "since last week" }}
             />
           </Grid>
           <Grid item xs={12} md={6} lg={3}>
             <DetailedStatisticsCard
-              title="XP Earned"
-              count="3,462"
+              title="Total Likes"
+              count="9721"
               icon={{ color: "success", component: <i className="ni ni-paper-diploma" /> }}
               // percentage={{ color: "error", count: "-2%", text: "since last quarter" }}
             />
           </Grid>
           <Grid item xs={12} md={6} lg={3}>
             <DetailedStatisticsCard
-              title="Live Proposals"
-              count="24"
+              title="Total Users"
+              count="892"
               icon={{ color: "warning", component: <i className="ni ni-cart" /> }}
               // percentage={{ color: "success", count: "+5%", text: "than last month" }}
             />
@@ -142,13 +134,21 @@ function Default() {
           </ArgonBox>
         </Grid>
 
-        <Grid container>
+        <Grid container spacing={5}>
           <Grid item lg={6}>
             <Card>
+              <ArgonBox px={3} py={3}>
               <CardContent>
+                <Grid container justifyContent="space-between">
+                  <Grid item>
+                  <ArgonTypography variant="h3">Top Products</ArgonTypography>
+                  </Grid>
+                  <Grid item>
+                  <ArgonTypography variant="body1" >May - June 2021 <ArrowDropDown></ArrowDropDown></ArgonTypography>
+                  </Grid>
+                </Grid>
                 <Grid container spacing={3}>
                   <Grid item lg={6}>
-                    <ArgonTypography variant="h3">Top Products</ArgonTypography>
                     <PieChart
                       chart={{
                         labels: ["Facebook", "Direct", "Organic", "Referral"],
@@ -160,35 +160,49 @@ function Default() {
                       }}
                     />
                   </Grid>
-                  <Grid item lg={6} style={{marginTop: '40px'}}> 
+                  <Grid item lg={6} style={{ marginTop: "40px" }}>
                     <Grid container spacing={2} direction="column">
-                        <Grid item>
-                        <ArgonTypography variant="h4">
-                            Basic Tees
+                      <Grid item>
+                        <ArgonBadgeDot
+                          badgeContent="Basic Tees"
+                          size="md"
+                          color="secondary"
+                          fontSize="button"
+                          style={{ fontWeight: "200px" }}
+                        ></ArgonBadgeDot>
+                        <ArgonTypography variant="body1" style={{ marginLeft: "45px" }}>
+                          55%
                         </ArgonTypography>
-                        <ArgonTypography variant="h4">55%</ArgonTypography>
-                        </Grid>
-
-                        <Grid item>
-               
-                        <ArgonTypography variant="h4">
-                          Basic Tees
+                      </Grid>
+                      <Grid item>
+                        <ArgonBadgeDot
+                          badgeContent="Custom Short Pants"
+                          size="md"
+                          color="primary"
+                          fontSize="button"
+                          style={{ fontWeight: "200px" }}
+                        ></ArgonBadgeDot>
+                        <ArgonTypography variant="body1" style={{ marginLeft: "45px" }}>
+                          31%
                         </ArgonTypography>
-                        <ArgonTypography variant="h4">31%</ArgonTypography>
-                        </Grid>
-
-                        <Grid item>
-                   
-                        <ArgonTypography variant="h4">
-                         Basic Tees
+                      </Grid>
+                      <Grid item>
+                        <ArgonBadgeDot
+                          badgeContent="Hoodies"
+                          size="md"
+                          color="dark"
+                          fontSize="button"
+                          style={{ fontWeight: "200px" }}
+                        ></ArgonBadgeDot>
+                        <ArgonTypography variant="body1" style={{ marginLeft: "45px" }}>
+                          14%
                         </ArgonTypography>
-                        <ArgonTypography variant="h4">14%</ArgonTypography>
-                        </Grid>
-                    
+                      </Grid>
                     </Grid>
                   </Grid>
                 </Grid>
               </CardContent>
+              </ArgonBox>
             </Card>
           </Grid>
 
@@ -209,7 +223,7 @@ function Default() {
                   <Grid container spacing={3} direction="column">
                     <Grid item>
                       <Stack style={{ borderLeft: "10px solid green", paddingLeft: "10px" }}>
-                        <ArgonTypography variant="h4">
+                        <ArgonTypography variant="h5">
                           Meeting with the suppliers from Kuta Bali
                         </ArgonTypography>
                         <ArgonTypography variant="body1">14:00 - 15:00</ArgonTypography>
@@ -218,11 +232,11 @@ function Default() {
                     </Grid>
                     <Grid item>
                       <Stack style={{ borderLeft: "10px solid blue", paddingLeft: "10px" }}>
-                        <ArgonTypography variant="h4">
-                          Meeting with the suppliers from Kuta Bali
+                        <ArgonTypography variant="h5">
+                          Check operation at Giga Factory 1
                         </ArgonTypography>
-                        <ArgonTypography variant="body1">14:00 - 15:00</ArgonTypography>
-                        <ArgonTypography variant="body1">Sunset Road, Kuta, Bali</ArgonTypography>
+                        <ArgonTypography variant="body1">18.00-20.00</ArgonTypography>
+                        <ArgonTypography variant="body1">at Central Jakarta </ArgonTypography>
                       </Stack>
                     </Grid>
                   </Grid>
@@ -232,7 +246,6 @@ function Default() {
           </Grid>
         </Grid>
       </ArgonBox>
-      <Footer />
     </DashboardLayout>
   );
 }

@@ -109,7 +109,11 @@ import JobListing from "layouts/pages/job-listing";
 import NewDAOProtocol from "layouts/pages/dao-protocol";
 import ProtocolDiscussion from "layouts/pages/dao-protocol/protocol-discussion";
 import RelatedProtocols from "layouts/pages/dao-protocol/related-protocols";
-import { Dashboard } from "@mui/icons-material";
+import { CalendarToday, Dashboard, SettingsAccessibility } from "@mui/icons-material";
+import { Money } from "@material-ui/icons";
+import { User } from "@web3uikit/icons";
+import APIPage from "layouts/pages/API";
+
 
 const routes = [
   {
@@ -130,7 +134,41 @@ const routes = [
         route: "/authentication/sign-in",
         component: <SignInIllustration />,
       },
+      {
+        name: "API", 
+        key: "api",
+        route: "/api",
+        component: <APIPage/>
+      }
     ],
   },
+  {
+    type: "collapse",
+    name: "Transaction", 
+    key: "Transaction", 
+    icon: <Money/>
+  },
+  {
+    type: "collapse",
+    name: "Schedule", 
+    key: "Transaction", 
+    icon: <CalendarToday/>
+  },
+  {
+    type: "collapse",
+    name: "Users", 
+    key: "Transaction", 
+    icon: <User/>
+  },
+  {
+    type: "collapse",
+    name: "Settings", 
+    key: "Transaction", 
+    icon: <SettingsAccessibility/>
+  },
+
+  {
+
+  }
 ];
 export default routes;
