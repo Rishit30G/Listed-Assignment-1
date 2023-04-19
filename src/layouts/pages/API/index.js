@@ -7,7 +7,7 @@ import DashboardNavbar from "examples/Navbars/DashboardNavbar";
 import React, { useEffect, useState } from "react";
 
 const baseURL =
-  "https://newsapi.org/v2/top-headlines?country=us&apiKey=78f751fe5d7f4e98b6b314afd5f21e18";
+  "https://v2.jokeapi.dev/joke/Programming?blacklistFlags=nsfw,religious,political,racist,sexist,explicit&type=single";
 
 export default function APIPage() {
   const [post, setposts] = useState(null);
@@ -30,19 +30,12 @@ export default function APIPage() {
           textTransform="capitalize"
           style={{ marginBottom: "15px" }}
         >
-          Data Fetched From NEWS API 
+          Data Fetched From Jokes API
         </ArgonTypography>
       </ArgonBox>
       <Card>
         <CardContent>
-          <ArgonTypography variant="h4">{post.articles[0].author}</ArgonTypography>
-          <ArgonTypography variant="h4">{post.articles[0].title}</ArgonTypography>
-        </CardContent>
-      </Card>
-      <Card style={{marginTop: '15px'}}>
-        <CardContent>
-          <ArgonTypography variant="h4">{post.articles[1].author}</ArgonTypography>
-          <ArgonTypography variant="h4">{post.articles[1].title}</ArgonTypography>
+          <ArgonTypography variant="h4">{post.joke}</ArgonTypography>
         </CardContent>
       </Card>
     </DashboardLayout>
